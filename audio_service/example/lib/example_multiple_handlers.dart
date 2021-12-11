@@ -49,17 +49,19 @@ Future<void> main() async {
       androidNotificationChannelName: 'Audio playback',
     ),
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 /// The app widget
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Audio Service Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
@@ -70,6 +72,8 @@ class MainScreen extends StatelessWidget {
     'Audio Player',
     'Text-To-Speech',
   ];
+
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -325,6 +329,7 @@ class AudioPlayerHandler extends BaseAudioHandler
             .toList(),
       ));
     } catch (e) {
+      // ignore: avoid_print
       print("Error: $e");
     }
   }
